@@ -1,6 +1,6 @@
 # devops-netology
 
-## Решение ДЗ 02-git-04-tools
+## Homework 02-git-04-tools
 
 ### 1. 
 commit aefead2207ef7e2aa5dc81a34aedf0cad4c32545 (HEAD)
@@ -12,7 +12,7 @@ Update CHANGELOG.md
 commit 85024d3100126de36331c6982bfaac02cdab9e76 (tag: v0.12.23)
 
 ### 3. 
-У коммита b8d720 два родителя, их хеши 56cd7859e05c36c06b56d013b55a252d0bb7e158 9ea88f22fc6269854151c571162c5bcf958bee2b
+Commit b8d720 enable parent commits 56cd7859e05c36c06b56d013b55a252d0bb7e158 9ea88f22fc6269854151c571162c5bcf958bee2b
 
 ### 4. 
 33ff1c03bb960b332be3af2e333462dde88b279e v0.12.24
