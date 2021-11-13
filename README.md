@@ -39,3 +39,27 @@ commit 52dbf94834cb970b510f2fba853a5b49ad9b1a46
 
 ### 7.
 Author: Martin Atkins <mart@degeneration.co.uk>
+
+### P.S. Homework commands
+
+git clone https://github.com/hashicorp/terraform
+
+git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+
+git log 85024d3
+
+git log --pretty=%P -n 1 "b8d720"
+
+git show b8d720
+
+git log --pretty=format:"%H %s" v0.12.23..v0.12.24
+
+git log --pretty=oneline -S "func providerSource"
+
+git show 8c928e
+
+git grep -p "globalPluginDirs("
+
+git log -L :globalPluginDirs:plugins.go
+
+git log -SsynchronizedWriters
