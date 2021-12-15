@@ -1,65 +1,78 @@
-# devops-netology
+# Домашнее задание к занятию "4.1. Командная оболочка Bash: Практические навыки"
 
-## Homework 02-git-04-tools
+## Обязательная задача 1
 
-### 1. 
-commit aefead2207ef7e2aa5dc81a34aedf0cad4c32545 (HEAD)
-Author: Alisdair McDiarmid <alisdair@users.noreply.github.com>
-Date:   Thu Jun 18 10:29:58 2020 -0400
-Update CHANGELOG.md
+Есть скрипт:
+```bash
+a=1
+b=2
+c=a+b
+d=$a+$b
+e=$(($a+$b))
+```
 
-### 2. 
-commit 85024d3100126de36331c6982bfaac02cdab9e76 (tag: v0.12.23)
+Какие значения переменным c,d,e будут присвоены? Почему?
 
-### 3. 
-Commit b8d720 enable parent commits 56cd7859e05c36c06b56d013b55a252d0bb7e158 9ea88f22fc6269854151c571162c5bcf958bee2b
+| Переменная  | Значение | Обоснование |
+| ------------- | ------------- | ------------- |
+| `c`  | a+b  | указан текст, а не переменные |
+| `d`  | 1+3  | команда преобразовала и вывела значения переменных, но не выполнила арифметической операции, заданы по умолчанию строки |
+| `e`  | 3    | за счет скобок получилась команда на выполнение арифметической операции со значениями переменных |
 
-### 4. 
-33ff1c03bb960b332be3af2e333462dde88b279e v0.12.24
-b14b74c4939dcab573326f4e3ee2a62e23e12f89 [Website] vmc provider links
-3f235065b9347a758efadc92295b540ee0a5e26e Update CHANGELOG.md
-6ae64e247b332925b872447e9ce869657281c2bf registry: Fix panic when server is unreachable
-5c619ca1baf2e21a155fcdb4c264cc9e24a2a353 website: Remove links to the getting started guide's old location
-06275647e2b53d97d4f0a19a0fec11f6d69820b5 Update CHANGELOG.md
-d5f9411f5108260320064349b757f55c09bc4b80 command: Fix bug when using terraform login on Windows
-4b6d06cc5dcb78af637bbb19c198faff37a066ed Update CHANGELOG.md
-dd01a35078f040ca984cdd349f18d0b67e486c35 Update CHANGELOG.md
-225466bc3e5f35baa5d07197bbc079345b77525e Cleanup after v0.12.23 release
 
-### 5.
- commit 8c928e83589d90a031f811fae52a81be7153e82f
-Author: Martin Atkins <mart@degeneration.co.uk>
-Date:   Thu Apr 2 18:04:39 2020 -0700
+## Обязательная задача 2
+На нашем локальном сервере упал сервис и мы написали скрипт, который постоянно проверяет его доступность, записывая дату проверок до тех пор, пока сервис не станет доступным (после чего скрипт должен завершиться). В скрипте допущена ошибка, из-за которой выполнение не может завершиться, при этом место на Жёстком Диске постоянно уменьшается. Что необходимо сделать, чтобы его исправить:
+```bash
+while ((1==1)
+do
+	curl https://localhost:4757
+	if (($? != 0))
+	then
+		date >> curl.log
+	fi
+done
+```
 
-### 6. 
-commit 78b12205587fe839f10d946ea3fdc06719decb05
-commit 52dbf94834cb970b510f2fba853a5b49ad9b1a46
-commit 78b12205587fe839f10d946ea3fdc06719decb05
-commit 52dbf94834cb970b510f2fba853a5b49ad9b1a46
+Необходимо написать скрипт, который проверяет доступность трёх IP: `192.168.0.1`, `173.194.222.113`, `87.250.250.242` по `80` порту и записывает результат в файл `log`. Проверять доступность необходимо пять раз для каждого узла.
 
-### 7.
-Author: Martin Atkins <mart@degeneration.co.uk>
+### Ваш скрипт:
+```bash
+while (( 1 == 1 ))
+    do
+        curl https://localhost:4757
+        if (($? != 0))
+        then
+            date >> curl.log
+        else exit
+        fi
+        sleep 5
+    done
+```
 
-### P.S. Homework commands
+## Обязательная задача 3
+Необходимо дописать скрипт из предыдущего задания так, чтобы он выполнялся до тех пор, пока один из узлов не окажется недоступным. Если любой из узлов недоступен - IP этого узла пишется в файл error, скрипт прерывается.
 
-git clone https://github.com/hashicorp/terraform
+### Ваш скрипт:
+```bash
+cat check_hosts
+hosts=(192.168.0.1 173.194.222.113 87.250.250.24)
+timeout=5
+for i in {1..5}
+do
+date >>hosts.log
+    for h in ${hosts[@]}
+    do
+	curl -Is --connect-timeout $timeout $h:80 >/dev/null
+        echo "    check" $h status=$? >>hosts.log
+    done
+done
+```
 
-git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+## Дополнительное задание (со звездочкой*) - необязательно к выполнению
 
-git log 85024d3
+Мы хотим, чтобы у нас были красивые сообщения для коммитов в репозиторий. Для этого нужно написать локальный хук для git, который будет проверять, что сообщение в коммите содержит код текущего задания в квадратных скобках и количество символов в сообщении не превышает 30. Пример сообщения: \[04-script-01-bash\] сломал хук.
 
-git log --pretty=%P -n 1 "b8d720"
-
-git show b8d720
-
-git log --pretty=format:"%H %s" v0.12.23..v0.12.24
-
-git log --pretty=oneline -S "func providerSource"
-
-git show 8c928e
-
-git grep -p "globalPluginDirs("
-
-git log -L :globalPluginDirs:plugins.go
-
-git log -SsynchronizedWriters
+### Ваш скрипт:
+```bash
+???
+```
