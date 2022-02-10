@@ -13,7 +13,8 @@
 
 **Ответ**
 
-![Задача 1](/05-virt-04-docker-compose/img/1.png)
+![Задача 1](/HomeWork/virt-homeworks/05-virt-04-docker-compose/img/1.png)
+
 ---
 
 ## Задача 2
@@ -27,7 +28,8 @@
 
 **Ответ**
 
-![Задача 2](/05-virt-04-docker-compose/img/2.png)
+![Задача 2](/HomeWork/virt-homeworks/05-virt-04-docker-compose/img/2.png)
+
 ---
 
 ## Задача 3
@@ -41,5 +43,6 @@
 
 **Ответ**
 
-![Задача 3](/05-virt-04-docker-compose/img/3.png)
+![Задача 3](/HomeWork/virt-homeworks/05-virt-04-docker-compose/img/3.png)
+
 ---
