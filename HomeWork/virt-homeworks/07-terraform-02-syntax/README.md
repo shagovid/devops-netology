@@ -505,7 +505,7 @@ yandex_iam_user = "ajelestcfkkc0kkqc***"
 
 ```
 
-![YC](/07-terraform-02-syntax/img/Screenshot_1.png)
+![YC](https://github.com/shagovid/devops-netology/blob/main/HomeWork/virt-homeworks/07-terraform-02-syntax/img/Screenshot_1.png)
 
 
 В качестве результата задания предоставьте:
