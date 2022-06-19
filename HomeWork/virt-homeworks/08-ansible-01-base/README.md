@@ -3,7 +3,7 @@
 ## Подготовка к выполнению
 1. Установите ansible версии 2.10 или выше.
 2. Создайте свой собственный публичный репозиторий на github с произвольным именем.
-3. Скачайте [playbook](./playbook/) из репозитория с домашним заданием и перенесите его в свой репозиторий.
+3. Скачайте [playbook](https://github.com/netology-code/mnt-homeworks/tree/master/08-ansible-01-base/playbook) из репозитория с домашним заданием и перенесите его в свой репозиторий.
 
 ---
 
@@ -95,7 +95,7 @@ localhost                  : ok=3    changed=0    unreachable=0    failed=0    s
 ***Решение:***
 
 Подготавливаем и запускаем контейнеры.  
-Используемый [docker-compose.yml](/08-ansible-01-base/docker-compose.yml)
+Используемый [docker-compose.yml](https://github.com/shagovid/ansible-homeworks/blob/main/08-ansible-01-base/docker-compose.yml)
 
 ```bash
 user@user-VPCSB2X9R:~/HW/ansible-homeworks/08-ansible-01-base/playbook$ sudo docker-compose up
@@ -419,7 +419,7 @@ ubuntu                     : ok=3    changed=0    unreachable=0    failed=0    s
 
 [Заполненый `README.md`](https://github.com/shagovid/ansible-homeworks/blob/main/08-ansible-01-base/playbook/README.md)
 
-Ссылка на репозиторий с изменённым ansible playbook: [https://github.com/shagovid/ansible-homeworks/tree/main/08-ansible-01-base/playbook)
+Ссылка на репозиторий с изменённым ansible playbook: (https://github.com/shagovid/ansible-homeworks/tree/main/08-ansible-01-base/playbook)
 
 ---
 
